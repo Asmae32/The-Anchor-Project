@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Anchor Project</title>
+    <!-- We link our CSS file here so the browser knows how to style this page -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>The Student-Athlete Command Center</h1>
+        <p>Manage your schedule. Avoid burnout. Stay anchored.</p>
+    </header>
+
+    <main>
+        <!-- The Input Section: Where the user adds new tasks -->
+        <section id="input-section">
+            <input type="text" id="task-title" placeholder="Task Title (e.g., Chemistry Lab)">
+            <select id="task-type">
+                <option value="academic">Academic</option>
+                <option value="sport">Sport</option>
+                <option value="personal">Personal</option>
+            </select>
+            <input type="date" id="task-date">
+            <button id="add-btn">Add Task</button>
+        </section>
+
+        <!-- The Display Section: Where the tasks will appear -->
+        <section id="task-list">
+            <!-- JavaScript will insert tasks here -->
+        </section>
+    </main>
+
+    <!-- We link our JavaScript file here so the browser knows the logic -->
+    <script src="script.js"></script>
+</body>
+</html>
