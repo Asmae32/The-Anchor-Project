@@ -4,6 +4,7 @@ const taskTypeSelect = document.getElementById('task-type');
 const taskDateInput = document.getElementById('task-date');
 const addBtn = document.getElementById('add-btn');
 const taskListSection = document.getElementById('task-list');
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
 
 // 2. Load existing tasks from LocalStorage when the page starts
@@ -63,24 +64,41 @@ function saveTasks() {
     localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
 }
 }
+}
 
 // 5. Function to render (display) the tasks in the HTML
 function renderTasks() {
-    // Clear the current list in the HTML
-    taskListSection.innerHTML = '';
-    // Loop through each task in our array
-    tasks.forEach(function(task) {
-        // Create a new div for this task
+    const list = document.getElementById('task-list');
+    list.innerHTML = '';
+
+    tasks.forEach(task => {
         const taskDiv = document.createElement('div');
-        taskDiv.classList.add('task-item', task.type, task.type + '-' + task.energy);
-        taskDiv.setAttribute('data-id', task.id);
-        // Format the date for display (if it exists)
-        const dateDisplay = task.date ? new Date(task.date).toLocaleDateString() : 'No date set';
-const completeBtn = document.createElement('button');
-completeBtn.innerHTML = '✅';
-completeBtn.style.marginRight = '10px';
-completeBtn.addEventListener('click', () => completeTask(task.id));
-taskDiv.appendChild(completeBtn);
+        taskDiv.className = 'task-item';
+        
+        // ... (your existing innerHTML for the task details) ...
+        
+        // Add the buttons container
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'task-buttons';
+
+        // Complete Button
+        const completeBtn = document.createElement('button');
+        completeBtn.innerHTML = '✅';
+        completeBtn.title = 'Mark as Complete';
+        completeBtn.addEventListener('click', () => completeTask(task.id));
+        buttonsDiv.appendChild(completeBtn);
+
+        // Delete Button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = '🗑️';
+        deleteBtn.title = 'Delete Task';
+        deleteBtn.addEventListener('click', () => deleteTask(task.id));
+        buttonsDiv.appendChild(deleteBtn);
+
+        taskDiv.appendChild(buttonsDiv);
+        list.appendChild(taskDiv);
+    });
+}
 
         // Set the HTML content of the div
         taskDiv.innerHTML = `
