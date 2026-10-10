@@ -1,0 +1,1 @@
+It is an an app to help other super busy and ambitious student-athletes like me manage their chaotic schedules, organize and track their 475836 extracurriculars and to-dos to improve their time-management, organization, avoid burnout and depression. PS: this is just a simple MVP, it will be developed and improved later on.
