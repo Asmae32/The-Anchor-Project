@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: Orange; /* A deep "anchor" orange */
+    background-color: orange; /* A deep "anchor" orange */
     color: white;
     padding: 20px;
     text-align: center;
@@ -272,7 +272,7 @@ body.midnight-mode .completed-task {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #f39c12;
+    background-color: orange;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -289,3 +289,4 @@ body.midnight-mode #theme-toggle {
     border: 1px solid #4a5568;
     box-shadow: 0 0 15px #fff;
 }
+
